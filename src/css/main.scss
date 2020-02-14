@@ -1,0 +1,716 @@
+@import "mq";
+@import "fonts";
+@import "palette";
+
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+.element-atom,
+.interactive-atom {
+  margin: 0 !important;
+}
+
+.live-blog-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background-color: #f6f6f6;
+  // overflow: hidden;
+
+  .headline-wrapper {
+
+    .top_bar {
+      background-color: #c70000;
+      padding-top: 8px;
+
+      .section_name {
+        font-family: "Guardian Egyptian Web", Georgia, serif;
+        color: #ffbac8;
+        line-height: 115%;
+        font-size: 1.25rem;
+        font-weight: 900;
+        position: absolute;
+        margin-top: -30px;
+        margin-left: 10px;
+        width: calc(100vw - 20px);
+
+        @include mq(desktop) {
+          width: 280px;
+          margin-top: 0;
+          margin-left: 20px;
+        }
+      }
+
+      .main_headline {
+        font-family: "Guardian Headline Full";
+        color: white;
+        padding-bottom: 24px;
+        font-weight: 500;
+        width: calc(100vw - 20px);
+        margin-top: 27px;
+        font-size: 1.75rem;
+        line-height: 2rem;
+
+        @include mq(desktop) {
+          font-size: 2.125rem;
+          padding-bottom: 2.25rem;
+          line-height: 2.375rem;
+          margin-top: 0;
+          width: 620px;
+        }
+      }
+
+    }
+
+    .second_bar {
+      background-color: #ab0613;
+      padding-bottom: 20px;
+      padding-top: 8px;
+
+      .live_ticker {
+        font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 600;
+        font-size: 40px;
+        color: white;
+        font-size: 0.75rem;
+        line-height: 1rem;
+        margin-top: -3px;
+        position: absolute;
+        margin-left: 10px;
+        margin-top: -34px;
+        display: none;
+
+        @include mq(desktop) {
+          display: block;
+          margin-top: 0;
+          margin-left: 20px;
+        }
+
+        .last_updated {
+          margin-left: 4px;
+          font-weight: 400;
+        }
+
+        &:before {
+          width: 15px;
+          height: 15px;
+          margin-right: 6px;
+          margin-top: 5px;
+          content: '';
+          background-color: white;
+          border-radius: 50%;
+          display: inline-block;
+          animation-name: tick;
+          animation-iteration-count: infinite;
+          animation-fill-mode: forwards;
+          opacity: 0;
+          animation-duration: 2s;
+        }
+      }
+    }
+
+    .top_standfirst {
+      font-family: "Guardian Headline Full";
+      font-weight: 700;
+      font-size: 1.0625rem;
+      line-height: 115%;
+      color: white;
+      width: calc(100vw - 20px);
+
+      @include mq(desktop) {
+        padding-bottom: 12px;
+        margin-top: 0;
+        width: 620px;
+      }
+
+      ul {
+        color: white;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        padding-top: 6px;
+        display: inline;
+
+        li {
+          margin-bottom: 8px;
+
+          font-weight: 700;
+          font-size: 1.0625rem;
+          line-height: 115%;
+          // display: inline-block;
+
+          a {
+            line-height: 135%;
+            text-decoration: underline;
+            color: white;
+
+            @include mq(desktop) {
+              text-decoration: none;
+              display: inline-block;
+              border-bottom: 1px solid #ffbac8;
+            }
+          }
+
+          &:before {
+            display: inline-block;
+            content: '';
+            width: 13px;
+            height: 13px;
+            margin-right: 6px;
+            // background-color: #dcdcdc;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .content-wrapper {
+    position: relative;
+
+    @include mq(desktop) {
+      border-left: 1px solid #dcdcdc;
+      border-right: 1px solid #dcdcdc;
+      padding-top: 1.25rem;
+    }
+
+    .left-content-wrapper {
+      position: absolute;
+      margin-top: 233px;
+      width: calc(100vw - 20px);
+
+      @include mq(desktop) {
+        margin-top: 0;
+        width: 300px;
+      }
+
+      .byline-content {
+        .live_byline {
+          font-size: 1.0625rem;
+          line-height: 135%;
+          font-family: "Guardian Egyptian Web", Georgia, serif;
+          font-weight: 700;
+          margin-left: 10px;
+          color: #c70000;
+          width: calc(100vw - 20px);
+
+          @include mq(desktop) {
+            width: 100%;
+            margin-left: 20px;
+          }
+
+          &::before {
+            content: '';
+            background-image: url(https://uploads.guim.co.uk/2020/02/13/byline-lines.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left;
+            width: 100%;
+            height: 17px;
+            display: inline-block;
+
+            @include mq(desktop) {
+              width: calc(100% - 20px);
+            }
+          }
+
+          a {
+            text-decoration: none;
+            color: #c70000;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .byeline-meta {
+          margin-left: 10px;
+          width: 100%;
+
+          @include mq(desktop) {
+            position: relative;
+            margin-left: 20px;
+            width: 280px;
+          }
+        }
+      }
+
+      .keyevents-content {
+        font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 0.8125rem;
+        border-top: 0.0625rem solid #dcdcdc;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding-top: 10px;
+        padding-left: 10px;
+
+        @include mq(desktop) {
+          margin-top: 30px;
+          margin-left: 20px;
+        }
+
+        p.key-event-title {
+          color: #ab0613;
+          text-decoration: none;
+          position: relative;
+          font-size: 0.875rem;
+          line-height: 1.25rem;
+          margin-bottom: 20px;
+          margin-left: 18px;
+
+          &::before {
+            display: inline-block;
+            content: '';
+            width: 2px;
+            height: 98px;
+            margin-right: 6px;
+            background: #dcdcdc;
+            position: absolute;
+            margin-left: -13px;
+            margin-top: -11px;
+          }
+
+          &:nth-last-child(1) {
+            &::before {
+              display: inline-block;
+              content: '';
+              width: 0;
+              height: 0;
+              margin-right: 6px;
+              background: #dcdcdc;
+              position: absolute;
+              margin-left: -13px;
+              margin-top: -11px;
+            }
+          }
+        }
+
+        p.time-stamp {
+          display: block;
+          position: relative;
+          top: -0.25rem;
+          line-height: 0.9375rem;
+          font-size: 0.8125rem;
+          display: table-cell;
+          width: 3.75rem;
+          font-weight: bold;
+          color: #121212;
+          margin-bottom: 4px;
+          display: contents;
+
+          &::before {
+            display: inline-block;
+            content: '';
+            width: 13px;
+            height: 13px;
+            margin-right: 6px;
+            background: #dcdcdc;
+            border-radius: 50%;
+
+          }
+        }
+      }
+    }
+
+    .right-content-wrapper {
+
+      .blocks-inner {
+        .live-header {
+          width: 100%;
+          height: auto;
+          margin-bottom: 200px;
+
+          @include mq(desktop) {
+            margin-bottom: 0;
+          }
+
+          .element-image {
+            width: 100%;
+            height: auto;
+          }
+
+          figcaption {
+            line-height: 105%;
+            display: none;
+          }
+
+          iframe {
+
+            width: 100vw;
+            height: 214px;
+
+            @include mq(desktop) {
+              width: 620px;
+              height: 370px;
+              margin-left: 20px;
+            }
+          }
+        }
+      }
+
+      .block {
+        border-top: 0.0625rem solid #c70000;
+        padding-top: 0.375rem;
+        padding-bottom: 0.75rem;
+        background-color: #ffffff;
+        border-bottom: 0.0625rem solid #ededed;
+        position: relative;
+        width: calc(100vw - 20px);
+        margin-left: 10px;
+
+        &::nth-child(1) {
+          margin-top: 445px;
+        }
+
+        @include mq(desktop) {
+          margin-top: 10px;
+          width: 100%;
+          margin-left: 0;
+        }
+
+        &::before {
+          content: '';
+          display: table;
+        }
+
+        .block-time {
+          margin-left: 0;
+          padding-left: 0;
+          padding: 0.1875rem 0 0.75rem 0.625rem;
+          position: absolute;
+        }
+
+        .updated-time {
+          font-size: 0.75rem;
+          line-height: 1rem;
+          font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          color: #767676;
+          right: 1.25rem;
+          bottom: 0.25rem;
+          margin: 0;
+        }
+
+        .published-time {
+          font-size: 0.8125rem;
+          line-height: 1.125rem;
+          font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+          margin: 0;
+          font-weight: bold;
+        }
+
+        .block-title {
+          font-family: "Guardian Egyptian Web", Georgia, serif;
+          font-size: 1.25rem;
+          line-height: 1.4375rem;
+          font-weight: 900;
+          margin-right: 1.25rem;
+          margin-left: 10px;
+          margin-top: 24px;
+          margin-bottom: 0.75rem;
+
+          @include mq(desktop) {
+            margin-left: 5rem;
+            margin-top: -0.1875rem;
+          }
+        }
+
+        .block-elements {
+          margin-bottom: 30px;
+          margin-top: 24px;
+
+          @include mq(desktop) {
+            margin-top: 0;
+          }
+
+          p {
+            margin-right: 10px;
+            margin-left: 10px;
+
+            @include mq(desktop) {
+              margin-left: 5rem;
+              margin-right: 1.25rem;
+            }
+
+            a {
+              color: #ab0613;
+              text-decoration: none;
+              border-bottom: 0.0625rem solid #dcdcdc;
+              transition: border-color .15s ease-out;
+
+              &:hover {
+                border-bottom: solid 0.0625rem #c70000;
+              }
+            }
+          }
+
+          ul {
+            margin-right: 1.25rem;
+            margin-left: 10px;
+            list-style: none;
+
+            @include mq(desktop) {
+              margin-left: 5rem;
+            }
+
+            li {
+              strong {
+                &::before {
+                  width: 12px;
+                  height: 12px;
+                  margin-right: 6px;
+                  margin-top: 5px;
+                  content: '';
+                  background-color: #ededed;
+                  border-radius: 50%;
+                  display: inline-block;
+                }
+              }
+            }
+          }
+
+          .figure {
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+          }
+
+          .element-tweet {
+            margin-right: 10px;
+            margin-left: 10px;
+
+            @include mq(desktop) {
+              margin-right: 1.25rem;
+              margin-left: 5rem;
+            }
+
+            .twitter-tweet {
+              margin: 10px 0;
+              background-color: rgb(255, 255, 255);
+              overflow: hidden;
+              border: 1px solid rgb(225, 232, 237);
+              border-radius: 5px;
+              color: rgb(28, 32, 34);
+              padding: 10px 0;
+              font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+              font-size: 16px;
+              line-height: 125%;
+              margin-right: 1.25rem;
+              width: 100%;
+
+              a {
+                color: rgb(43, 123, 185);
+                text-decoration: none;
+                border-bottom: none;
+
+                &:hover {
+                  color: rgb(59, 148, 217);
+                }
+              }
+            }
+          }
+
+          aside {
+            border-top: 1px solid #ab0613;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-top: 6px;
+            margin-bottom: 30px;
+            width: calc(100vw - 50px);
+            padding: 4px 0 30px 8px;
+            background-color: #f6f6f6;
+
+            @include mq(desktop) {
+              margin-top: 12px;
+              width: 550px;
+              margin-left: 5rem;
+              margin-right: 1.25rem;
+            }
+
+            &:hover {
+              background-color: #ededed;
+            }
+
+            p {
+              margin-left: 0;
+
+              span {
+                display: none;
+              }
+
+              a {
+                font-size: 1.25rem;
+                line-height: 1.4375rem;
+                font-family: "Guardian Egyptian Web", Georgia, serif;
+                font-weight: normal;
+                color: #121212;
+                border-bottom: none;
+
+                &:hover {
+                  border-bottom: none;
+                }
+              }
+            }
+
+            .element-rich-link {
+              .rich-link {
+                background-color: #f6f6f6;
+
+                .rich-link__container {
+                  position: relative;
+
+                  .rich-link__header {
+                    padding-top: 0.125rem;
+                    font-size: 1.25rem;
+                    line-height: 1.4375rem;
+                    font-family: "Guardian Egyptian Web", Georgia, serif;
+                    font-weight: normal;
+                    padding: 0.25rem 0.3125rem 0.5em;
+                    box-sizing: border-box;
+                    min-height: 2.25rem;
+                  }
+
+                  .rich-link__read-more {
+                    padding-left: 0.3125rem;
+
+                    .rich-link__arrow {
+                      display: inline-block;
+                    }
+
+                    .rich-link__read-more-text {
+                      color: #c70000;
+                      font-size: 0.875rem;
+                      font-family: "Guardian Egyptian Web", Georgia, serif;
+                      display: inline-block;
+                      height: 1.875rem;
+                      line-height: 1.625rem;
+                      padding-left: 0.125rem;
+                      vertical-align: top;
+                      font-weight: 500;
+                    }
+                  }
+
+                  .u-faux-block-link__overlay {
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    overflow: hidden;
+                    text-indent: 200%;
+                    white-space: nowrap;
+                    background: rgba(0, 0, 0, 0);
+                  }
+                }
+              }
+            }
+          }
+
+          .element-image {
+            clear: left;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.375rem;
+
+            figcaption {
+              line-height: 105%;
+              margin-left: 10px;
+              padding: 0;
+
+              @include mq(desktop) {
+                margin-left: 5rem;
+              }
+            }
+
+            .element-image__caption {
+              font-size: 0.75rem;
+              line-height: 1rem;
+              font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+              color: #767676;
+
+              &::before {
+                content: '';
+                background-image: url('https://uploads.guim.co.uk/2020/02/13/live-blog-caption-arrow.svg');
+                background-size: contain;
+                display: inline-block;
+                width: 11px;
+                height: 10px;
+                margin-right: 4px;
+              }
+            }
+
+            .element-image__credit {
+              margin-right: 1.25rem;
+              font-size: 0.75rem;
+              line-height: 1rem;
+              font-family: "Guardian Text Sans Web", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+              color: #767676;
+            }
+          }
+
+          .element-interactive {
+            iframe {
+              width: calc(100vw - 20px);
+
+              .gu-graphic-header {
+                h1 {
+                  margin: 0 10px;
+
+                  @include mq(desktop) {
+                    margin: 0 0;
+                  }
+                }
+              }
+            }
+          }
+
+          .quoted {
+            p {
+              font-style: normal;
+
+              &::before {
+                content: '';
+                background-image: url(https://uploads.guim.co.uk/2020/02/13/live-blog-quote-marks.svg);
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 21px;
+                height: 12px;
+                display: inline-block;
+              }
+            }
+          }
+        }
+
+
+      }
+    }
+  }
+
+  .gu-image {
+    height: auto;
+    width: 100%;
+
+    @include mq(desktop) {
+      height: auto;
+      width: 660px;
+    }
+  }
+
+  @keyframes tick {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+}
