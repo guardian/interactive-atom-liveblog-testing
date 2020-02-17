@@ -347,9 +347,8 @@
             height: 214px;
 
             @include mq(desktop) {
-              width: 620px;
+              width: 660px;
               height: 370px;
-              margin-left: 20px;
             }
           }
         }
@@ -711,6 +710,41 @@
 
     100% {
       opacity: 0;
+    }
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    top: -240px;
+  }
+  100% {
+    top: 20px;
+  }
+}
+
+.sticky-video {
+  margin-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  position: fixed;
+  z-index: 100;
+  left: 15.2vw;
+  top: -240px;
+  width: 290px !important;
+  animation-name: slide-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+
+  figure {
+    width: 100% !important;
+    height: 200px !important;
+
+    iframe {
+      width: 100% !important;
+      height: 160px !important;
     }
   }
 }
